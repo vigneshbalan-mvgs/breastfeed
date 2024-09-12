@@ -29,7 +29,7 @@ const FeedingsLogScreen = () => {
           <Text style={styles.timeText}>{`Feeding Time: ${item.time}`}</Text>
         </View>
       )}
-      ListFooterComponent={<Text style={styles.title2}>By @mvgs</Text>}
+      ListFooterComponent={<Text style={styles.title2}>End of the List</Text>}
     />
   );
 };
@@ -37,31 +37,31 @@ const FeedingsLogScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#EBD3F8",
     padding: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
+    color: "#2E073F",
     marginBottom: 20,
     textAlign: "center",
   },
   title2: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
+    color: "#2E073F",
     marginTop: 20,
     marginBottom: 50,
     textAlign: "center",
   },
 
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#FFF",
     padding: 20,
     borderRadius: 15,
     marginBottom: 15,
-    shadowColor: "#000",
+    shadowColor: "#AD49E1",
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
@@ -70,13 +70,13 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#555",
+    color: "#7A1CAC",
     marginBottom: 8,
   },
   timeText: {
     fontSize: 18,
     fontWeight: "400",
-    color: "#777",
+    color: "#AD49E1",
   },
 });
 

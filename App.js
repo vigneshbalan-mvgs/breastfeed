@@ -9,6 +9,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import TimerScreen from "./screens/TimerScreen";
 import FeedingLogScreen from "./screens/FeedingLogScreen";
 import GrowthScreen from "./screens/GrowthScreen";
+import TwoView from "./screens/TabView";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,8 +25,8 @@ const App = () => {
               case "Timer":
                 iconName = "timer";
                 break;
-              case "FeedingLog":
-                iconName = "restaurant";
+              case "TwoView":
+                iconName = "amp-stories";
                 break;
               case "Growth":
                 iconName = "show-chart";
@@ -34,8 +35,10 @@ const App = () => {
 
             return <MaterialIcons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "#2E073F",
+          tabBarInactiveTintColor: "#7A1CAC",
+          tabBarShowLabel: false,
+          tabBarStyle: { backgroundColor: "#EBD3F8" },
         })}
       >
         <Tab.Screen
@@ -44,8 +47,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name="FeedingLog"
-          component={FeedingLogScreen}
+          name="TwoView"
+          component={TwoView}
           options={{ headerShown: false }}
         />
         <Tab.Screen
