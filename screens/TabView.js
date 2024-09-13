@@ -1,47 +1,73 @@
 import * as React from "react";
-import { View, Text, useWindowDimensions } from "react-native";
-import { TabView, SceneMap } from "react-native-tab-view";
+import {
+  View,
+  Text,
+  useWindowDimensions,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
+import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import FeedingLogScreen from "./FeedingLogScreen";
-import TimerScreen from "./TimerScreen";
 import GrowthScreen from "./GrowthScreen";
-import Cards from "./Cards";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
+// Define your routes
 const FirstRoute = () => <FeedingLogScreen />;
-
-const SecondRoute = () => <TimerScreen />;
-
-const ThirdRoute = () => <GrowthScreen />;
-
-const FourthRoute = () => <Cards />;
+const SecondRoute = () => <GrowthScreen />;
 
 const renderScene = SceneMap({
   first: FirstRoute,
   second: SecondRoute,
-  third: ThirdRoute,
-  fourth: FourthRoute,
 });
+
+// Custom Tab Bar Component
+const CustomTabBar = (props) => (
+  <TabBar
+    {...props}
+    style={styles.tabBar}
+    indicatorStyle={styles.indicator}
+    labelStyle={styles.label}
+    tabStyle={styles.tab}
+  />
+);
+
 export default function TwoView() {
   const layout = useWindowDimensions();
-
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: "second", title: "Growth" },
     { key: "first", title: "Log" },
-    { key: "third", title: "Timer" },
-    { key: "fourth", title: "Cards" },
+    { key: "second", title: "Growth" },
   ]);
 
   return (
-    <TabView
-      style={{
-        marginTop: 30,
-        borderRadius: 15,
-      }}
-      navigationState={{ index, routes }}
-      renderScene={renderScene}
-      onIndexChange={setIndex}
-      initialLayout={{ width: layout.width }}
-      tabBarPosition="hide"
-    />
+    <SafeAreaProvider>
+      <TabView
+        style={styles.container}
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: layout.width }}
+        renderTabBar={(props) => <CustomTabBar {...props} />}
+      />
+    </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {},
+  tabBar: {
+    backgroundColor: "#FFFFFF",
+    color: "#FF6F61",
+  },
+  indicator: {
+    backgroundColor: "#FADFA1",
+  },
+  label: {
+    color: "#FF6F61",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  tab: {
+    marginTop: 200,
+  },
+});

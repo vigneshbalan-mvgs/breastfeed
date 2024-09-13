@@ -1,32 +1,19 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import feedingData from "./feedingData";
 
 const FeedingsLogScreen = () => {
-  const [feedings] = useState([
-    { date: "2023-07-01", time: "08:00 AM" },
-    { date: "2023-07-01", time: "12:00 PM" },
-    { date: "2023-07-01", time: "04:00 PM" },
-    { date: "2023-07-01", time: "08:00 PM" },
-    { date: "2023-08-01", time: "08:00 AM" },
-    { date: "2023-08-01", time: "12:00 PM" },
-    { date: "2023-08-01", time: "04:00 PM" },
-    { date: "2023-08-01", time: "08:00 PM" },
-    { date: "2023-09-01", time: "08:00 AM" },
-    { date: "2023-09-01", time: "12:00 PM" },
-    { date: "2023-09-01", time: "04:00 PM" },
-    { date: "2023-09-01", time: "08:00 PM" },
-  ]);
-
   return (
     <FlatList
       style={styles.container}
-      data={feedings}
+      data={feedingData}
       keyExtractor={(item, index) => index.toString()}
       ListHeaderComponent={<Text style={styles.title}>Feedings Log</Text>}
       renderItem={({ item }) => (
         <View style={styles.card}>
           <Text style={styles.dateText}>{`Date: ${item.date}`}</Text>
           <Text style={styles.timeText}>{`Feeding Time: ${item.time}`}</Text>
+          <Text style={styles.timeText}>{`Amount: ${item.amount}`}</Text>
         </View>
       )}
       ListFooterComponent={<Text style={styles.title2}>End of the List</Text>}
@@ -37,7 +24,7 @@ const FeedingsLogScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#EBD3F8",
+    backgroundColor: "#f5f5f5",
     padding: 20,
   },
   title: {
@@ -50,7 +37,7 @@ const styles = StyleSheet.create({
   title2: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#2E073F",
+    color: "#ff6f61",
     marginTop: 20,
     marginBottom: 50,
     textAlign: "center",
@@ -61,7 +48,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 15,
     marginBottom: 15,
-    shadowColor: "#AD49E1",
+    shadowColor: "#f5f5f5",
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
@@ -70,7 +57,7 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#7A1CAC",
+    color: "#ff6f61",
     marginBottom: 8,
   },
   timeText: {

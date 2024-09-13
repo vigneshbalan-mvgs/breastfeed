@@ -35,10 +35,10 @@ const App = () => {
 
             return <MaterialIcons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "#2E073F",
-          tabBarInactiveTintColor: "#7A1CAC",
+          tabBarActiveTintColor: "#FF6F61", // Bold peach for active tab
+          tabBarInactiveTintColor: "#FADFA1", // Light peach for inactive tab
           tabBarShowLabel: false,
-          tabBarStyle: { backgroundColor: "#EBD3F8" },
+          tabBarStyle: { backgroundColor: "#FFFFFF" }, // White background for the tab bar
         })}
       >
         <Tab.Screen
