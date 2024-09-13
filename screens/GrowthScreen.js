@@ -90,27 +90,27 @@ const GrowthScreen = () => {
       <View style={styles.detailsContainer}>
         <Text style={styles.detailsTitle}>Entries for the day</Text>
         <Text style={styles.detailsSubtitle}>2:00 PM - 6:00 PM</Text>
-        <FlatList
-          data={feedingData}
-          keyExtractor={(item) => item.time} // Use a unique key for each item
-          renderItem={({ item }) => (
-            <View style={styles.card}>
-              <Text style={styles.cardTitle}>{item.title}</Text>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Text style={styles.cardDetail}>Date: {item.date}</Text>
-                <Text style={styles.cardDetail}>Time: {item.time}</Text>
-              </View>
-              <Text style={styles.cardDetail}>Amount: {item.amount}</Text>
-            </View>
-          )}
-        />
       </View>
+      <FlatList
+        data={feedingData}
+        keyExtractor={(item) => item.time}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text style={styles.cardDetail}>Date: {item.date}</Text>
+              <Text style={styles.cardDetail}>Time: {item.time}</Text>
+            </View>
+            <Text style={styles.cardDetail}>Amount: {item.amount}</Text>
+          </View>
+        )}
+      />
     </ScrollView>
   );
 };

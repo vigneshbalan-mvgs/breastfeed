@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  ScrollView,
+  ScrollViewComponent,
+} from "react-native";
 import feedingData from "./feedingData";
 
 const FeedingsLogScreen = () => {
@@ -11,6 +18,7 @@ const FeedingsLogScreen = () => {
       ListHeaderComponent={<Text style={styles.title}>Feedings Log</Text>}
       renderItem={({ item }) => (
         <View style={styles.card}>
+          <Text style={styles.title2}>{item.title}</Text>
           <Text style={styles.dateText}>{`Date: ${item.date}`}</Text>
           <Text style={styles.timeText}>{`Feeding Time: ${item.time}`}</Text>
           <Text style={styles.timeText}>{`Amount: ${item.amount}`}</Text>
@@ -30,7 +38,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#2E073F",
+    color: "black",
     marginBottom: 20,
     textAlign: "center",
   },
@@ -38,8 +46,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "#ff6f61",
-    marginTop: 20,
-    marginBottom: 50,
+    marginBottom: 10,
     textAlign: "center",
   },
 
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
   timeText: {
     fontSize: 18,
     fontWeight: "400",
-    color: "#AD49E1",
+    color: "black",
   },
 });
 
